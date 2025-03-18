@@ -1,0 +1,16 @@
+const express = require('express');
+const { addEventSpace, getMyEventSpaces, updateEventSpace, deleteEventSpace, getOwnerEventSpaces, getFilteredEventSpaces,getEventSpaceById } = require('../controllers/eventSpaceController');
+const {authMiddleware} = require('../middleware/authMiddleware');
+
+const router = express.Router();
+
+// Routes
+router.post('/add', authMiddleware, addEventSpace); // Only logged-in owners can add
+router.get("/my-event-spaces", authMiddleware, getMyEventSpaces);// Fetch all event spaces (for users & admin)
+router.get("/filter", getFilteredEventSpaces);
+router.get("/:id", getEventSpaceById);
+router.get('/my-spaces', authMiddleware, getOwnerEventSpaces); // Fetch event spaces for specific owner
+router.put('/update/:id', authMiddleware, updateEventSpace); // Owners can update their spaces
+router.delete('/delete/:id', authMiddleware, deleteEventSpace); // Owners can delete their spaces
+
+module.exports = router;
