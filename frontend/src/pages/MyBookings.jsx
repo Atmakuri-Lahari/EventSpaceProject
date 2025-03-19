@@ -12,11 +12,11 @@ const MyBookings = () => {
             try {
                 let res;
                 if (user.role === "owner") {
-                    res = await axios.get("http://localhost:5000/api/bookings/owner", {
+                    res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/owner", {
                         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                     });
                 } else {
-                    res = await axios.get("http://localhost:5000/api/bookings/user", {
+                    res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/user", {
                         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                     });
                 }
@@ -32,7 +32,7 @@ const MyBookings = () => {
     const handleCancel = async (bookingId) => {
         if (window.confirm("Are you sure you want to cancel this booking?")) {
             try {
-                await axios.delete(`http://localhost:5000/api/bookings/delete/${bookingId}`, {
+                await axios.delete(`https://eventspaceproject.onrender.com/api/bookings/delete/${bookingId}`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                 });
                 setBookings(bookings.filter(booking => booking._id !== bookingId));

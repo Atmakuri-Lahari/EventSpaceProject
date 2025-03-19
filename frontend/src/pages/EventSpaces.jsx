@@ -16,7 +16,7 @@ const EventSpaces = () => {
     useEffect(() => {
         const fetchEventSpaces = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/event-spaces/filter", {
+                const res = await axios.get("https://eventspaceproject.onrender.com/api/event-spaces/filter", {
                     params: { city, location: locationValue, type },
                 });
                 setEventSpaces(res.data);

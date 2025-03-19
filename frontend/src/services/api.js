@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:5000/api"; // Base API URL
+const API_BASE_URL = "https://eventspaceproject.onrender.com/api"; // Base API URL
 const API_URL_AUTH = `${API_BASE_URL}/auth`;
 const API_URL_EVENTSPACES = `${API_BASE_URL}/eventSpaces`;
 const API_URL_BOOKINGS = `${API_BASE_URL}/bookings`;

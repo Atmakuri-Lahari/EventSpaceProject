@@ -7,7 +7,7 @@ const AdminBookings = () => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/bookings/admin", {
+                const res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/admin", {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
                 });
                 setBookings(res.data);

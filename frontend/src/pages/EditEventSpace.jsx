@@ -22,7 +22,7 @@ const AdminUpdateEventSpace = () => {
     useEffect(() => {
         const fetchEventSpace = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/event-spaces/${id}`);
+                const res = await axios.get(`https://eventspaceproject.onrender.com/api/event-spaces/${id}`);
                 setEventData(res.data);
             } catch (error) {
                 console.error("Error fetching event space", error);
@@ -66,7 +66,7 @@ const AdminUpdateEventSpace = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/event-spaces/update/${id}`, eventData, {
+            await axios.put(`https://eventspaceproject.onrender.com/api/event-spaces/update/${id}`, eventData, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
             });
 

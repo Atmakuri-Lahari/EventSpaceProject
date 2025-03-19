@@ -14,15 +14,15 @@ const OwnerBookings = () => {
             try {
                 let res;
                 if (user.role === "owner") {
-                    res = await axios.get("http://localhost:5000/api/bookings/owner", {
+                    res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/owner", {
                         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                     });
                 } else if (user.role === "admin") {
-                    res = await axios.get("http://localhost:5000/api/bookings/all", {
+                    res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/all", {
                         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                     });
                 } else {
-                    res = await axios.get("http://localhost:5000/api/bookings/user", {
+                    res = await axios.get("https://eventspaceproject.onrender.com/api/bookings/user", {
                         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                     });
                 }

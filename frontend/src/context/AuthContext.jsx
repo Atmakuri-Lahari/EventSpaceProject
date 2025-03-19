@@ -18,7 +18,7 @@ const AuthProvider = ({ children }) => {
 
     const register = async (name, email, password, role, navigate) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/auth/register", { name, email, password, role });
+            const res = await axios.post("https://eventspaceproject.onrender.com/api/auth/register", { name, email, password, role });
 
             if (res.data && res.data.user && res.data.token) {
                 setUser(res.data.user);
@@ -48,7 +48,7 @@ const AuthProvider = ({ children }) => {
         try {
             console.log("⏳ Attempting login..."); // ✅ Debug log before API call
     
-            const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+            const res = await axios.post('https://eventspaceproject.onrender.com/api/auth/login', { email, password });
     
             console.log("✅ Login API Response:", res.data); // ✅ Debug API response
     

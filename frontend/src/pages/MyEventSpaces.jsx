@@ -9,7 +9,7 @@ const MyEventSpaces = () => {
     useEffect(() => {
         const fetchEventSpaces = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/api/event-spaces/my-event-spaces", {
+                const res = await axios.get("https://eventspaceproject.onrender.com/api/event-spaces/my-event-spaces", {
                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
                 });
                 setEventSpaces(res.data);

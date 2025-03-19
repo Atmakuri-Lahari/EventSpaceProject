@@ -68,7 +68,7 @@ const AddEventSpace = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5000/api/event-spaces/add", eventData, {
+            await axios.post("https://eventspaceproject.onrender.com/api/event-spaces/add", eventData, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
             alert("Event Space Added Successfully!");

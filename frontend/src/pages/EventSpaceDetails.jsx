@@ -23,10 +23,10 @@ const EventSpaceDetails = () => {
     useEffect(() => {
         const fetchEventSpace = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/api/event-spaces/${id}`);
+                const res = await axios.get(`https://eventspaceproject.onrender.com/api/event-spaces/${id}`);
                 setEventSpace(res.data);
 
-                const dateRes = await axios.get(`http://localhost:5000/api/bookings/available-dates-slots/${id}`);
+                const dateRes = await axios.get(`https://eventspaceproject.onrender.com/api/bookings/available-dates-slots/${id}`);
                 setAvailableDates(dateRes.data.availableDates);
                 setAvailableSlots(dateRes.data.availableSlots);
 
@@ -58,7 +58,7 @@ const EventSpaceDetails = () => {
         }
 
         try {
-            await axios.post("http://localhost:5000/api/bookings/add", {
+            await axios.post("https://eventspaceproject.onrender.com/api/bookings/add", {
                 eventSpaceId: id,
                 ...bookingData
             }, {

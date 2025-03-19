@@ -16,12 +16,12 @@ const AdminPanel = () => {
             try {
                 const token = localStorage.getItem("token");
 
-                const bookingsRes = await axios.get("http://localhost:5000/api/admin/bookings/all", {
+                const bookingsRes = await axios.get("https://eventspaceproject.onrender.com/api/admin/bookings/all", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setBookings(bookingsRes.data);
 
-                const eventSpacesRes = await axios.get("http://localhost:5000/api/admin/event-spaces/all", {
+                const eventSpacesRes = await axios.get("https://eventspaceproject.onrender.com/api/admin/event-spaces/all", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setEventSpaces(eventSpacesRes.data);
@@ -37,7 +37,7 @@ const AdminPanel = () => {
         if (!window.confirm("Are you sure you want to cancel this booking?")) return;
 
         try {
-            await axios.delete(`http://localhost:5000/api/admin/bookings/${id}`, {
+            await axios.delete(`https://eventspaceproject.onrender.com/api/admin/bookings/${id}`, {
                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
             });
             setBookings(bookings.filter((booking) => booking._id !== id));
